@@ -7,8 +7,8 @@
     <ProjectGuid>{D497FF74-E547-4543-A377-F74D5E91BFE7}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ap.Redirect</RootNamespace>
-    <AssemblyName>Ap.Redirect</AssemblyName>
+    <RootNamespace>RedirectService</RootNamespace>
+    <AssemblyName>RedirectService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ap.Redirect, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ap.Redirect.1.0.0\lib\Ap.Redirect.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -56,7 +60,6 @@
     <Compile Include="Configuration\Settings.cs" />
     <Compile Include="GlobalSection.cs" />
     <Compile Include="IModule.cs" />
-    <Compile Include="NuGet.Modules\Redirect\HttpRedirect.cs" />
     <Compile Include="NuGet.Modules\XmlHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,4 @@
-﻿namespace Ap.Redirect
+﻿namespace RedirectService
 {
     public interface IModule
     {

@@ -1,6 +1,6 @@
 ﻿using Topshelf;
 
-namespace Ap.Redirect
+namespace RedirectService
 {
     class Program
     {

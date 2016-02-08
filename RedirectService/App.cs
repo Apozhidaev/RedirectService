@@ -1,7 +1,4 @@
-﻿using Ap.Redirect.Configuration;
-using NuGet.Modules;
-
-namespace Ap.Redirect
+﻿namespace RedirectService
 {
     public class App
     {

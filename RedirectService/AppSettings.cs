@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Ap.Redirect
+namespace RedirectService
 {
     public static class AppSettings
     {

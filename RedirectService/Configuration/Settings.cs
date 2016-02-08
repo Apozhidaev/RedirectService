@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Ap.Redirect.Configuration
+namespace RedirectService.Configuration
 {
     [XmlRoot("settings")]
     public class Settings

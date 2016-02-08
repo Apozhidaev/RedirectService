@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Ap.Redirect.Configuration;
+using Ap.Redirect;
 using NuGet.Modules;
-using NuGet.Modules.Redirect;
+using RedirectService.Configuration;
 
-namespace Ap.Redirect
+namespace RedirectService
 {
     public class RedirectModule : IModule
     {

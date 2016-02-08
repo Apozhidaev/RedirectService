@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Ap.Redirect
+namespace RedirectService
 {
     public class GlobalSection : ConfigurationSection
     {
