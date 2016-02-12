@@ -7,10 +7,10 @@ namespace RedirectService.Configuration
         [XmlAttribute("name")]
         public string Name { get; set; }
 
-        [XmlAttribute("from")]
-        public string From { get; set; }
+        [XmlAttribute("regex")]
+        public string Regex { get; set; }
 
-        [XmlAttribute("to")]
-        public string To { get; set; }
+        [XmlAttribute("replacement")]
+        public string Replacement { get; set; }
     }
 }

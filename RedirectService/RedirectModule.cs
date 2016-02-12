@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Ap.Redirect;
 using NuGet.Modules;
+using NuGet.Modules.Redirect;
 using RedirectService.Configuration;
 
 namespace RedirectService
@@ -17,16 +17,28 @@ namespace RedirectService
             var patterns = settings.Patterns?.ToDictionary(p => p.Name);
             foreach (var redirectRule in settings.Redirects)
             {
-                Dictionary<string, Dictionary<Regex, string>> rules = null;
+                Dictionary<Regex, string> queryRules = null;
+                Dictionary<string, Dictionary<Regex, string>> contentRules = null;
                 if (patterns != null)
                 {
-                    rules = redirectRule.Replaces?.ToDictionary(
-                    rule => rule.MediaType,
-                    rule => rule.Patterns.Split(',').ToDictionary(
-                        patternName => new Regex(patterns[patternName].From),
-                        patternName => patterns[patternName].To));
+                    queryRules = redirectRule.Patterns?.Split(',').ToDictionary(
+                        patternName => new Regex(patterns[patternName].Regex, RegexOptions.IgnoreCase),
+                        patternName => patterns[patternName].Replacement);
+
+                    contentRules = redirectRule.Replaces?.ToDictionary(
+                        rule => rule.MediaType,
+                        rule => rule.Patterns.Split(',').ToDictionary(
+                            patternName => new Regex(patterns[patternName].Regex, RegexOptions.IgnoreCase),
+                            patternName => patterns[patternName].Replacement));
                 }
-                _redirects.Add(new HttpRedirect(redirectRule.From.Split(','), redirectRule.To, rules));
+                var redirectSettings = new RedirectSettings
+                {
+                    Froms = redirectRule.From.Split(','),
+                    To = redirectRule.To,
+                    QueryRules = queryRules,
+                    ContentRules = contentRules
+                };
+                _redirects.Add(new HttpRedirect(redirectSettings));
             }
             foreach (var httpRedirect in _redirects)
             {

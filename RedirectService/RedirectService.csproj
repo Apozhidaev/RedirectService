@@ -33,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ap.Redirect, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ap.Redirect.1.0.0\lib\Ap.Redirect.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -60,18 +56,24 @@
     <Compile Include="Configuration\Settings.cs" />
     <Compile Include="GlobalSection.cs" />
     <Compile Include="IModule.cs" />
+    <Compile Include="NuGet.Modules\Redirect\HttpRedirect.cs" />
+    <Compile Include="NuGet.Modules\Redirect\ProcessRequestEventArgs.cs" />
+    <Compile Include="NuGet.Modules\Redirect\RedirectSettings.cs" />
     <Compile Include="NuGet.Modules\XmlHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedirectModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="settings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

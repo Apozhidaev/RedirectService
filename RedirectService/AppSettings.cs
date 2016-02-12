@@ -8,13 +8,11 @@ namespace RedirectService
 
         static AppSettings()
         {
-            Global = (GlobalSection)ConfigurationManager.GetSection("global");
+            Global = (GlobalSection) ConfigurationManager.GetSection("global");
         }
 
         public static string Description => Global.Description;
-
         public static string DisplayName => Global.DisplayName;
-
         public static string ServiceName => Global.ServiceName;
     }
 }
