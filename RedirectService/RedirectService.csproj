@@ -56,9 +56,6 @@
     <Compile Include="Configuration\Settings.cs" />
     <Compile Include="GlobalSection.cs" />
     <Compile Include="IModule.cs" />
-    <Compile Include="NuGet.Modules\Redirect\HttpRedirect.cs" />
-    <Compile Include="NuGet.Modules\Redirect\ProcessRequestEventArgs.cs" />
-    <Compile Include="NuGet.Modules\Redirect\RedirectSettings.cs" />
     <Compile Include="NuGet.Modules\XmlHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +72,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Redirect\Redirect\Redirect.csproj">
+      <Project>{fd17deae-9aa7-41fb-9c39-87fd2b02d7aa}</Project>
+      <Name>Redirect</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

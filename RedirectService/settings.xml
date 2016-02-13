@@ -5,7 +5,7 @@
     <pattern name="domain" regex="https://reg\.2domains\.ru" replacement="http://localhost:50009" />
   </patterns>
   <redirects>
-    <redirect from="http://localhost:50009/" to="https://reg.2domains.ru/" >
+    <redirect from="http://localhost:50009/" to="https://reg.2domains.ru/" patterns="domain">
       <replaces>
         <rule mediaType="text/html" patterns="domain" />
         <rule mediaType="application/ecmascript" patterns="domain" />

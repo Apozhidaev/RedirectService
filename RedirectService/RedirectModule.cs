@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using NuGet.Modules;
-using NuGet.Modules.Redirect;
+using Redirect;
 using RedirectService.Configuration;
 
 namespace RedirectService
@@ -33,10 +34,9 @@ namespace RedirectService
                 }
                 var redirectSettings = new RedirectSettings
                 {
-                    Froms = redirectRule.From.Split(','),
-                    To = redirectRule.To,
-                    QueryRules = queryRules,
-                    ContentRules = contentRules
+                    Urls = redirectRule.From.Split(','),
+                    UrlProcessor = new UrlProcessor(new Uri(redirectRule.To), queryRules),
+                    ResponseContentProcessor = new ContentProcessor(contentRules)
                 };
                 _redirects.Add(new HttpRedirect(redirectSettings));
             }
